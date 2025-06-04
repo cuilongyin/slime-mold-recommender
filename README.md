@@ -170,11 +170,11 @@ Try the algorithm yourself with our [interactive web demo](https://cuilongyin.gi
 
 Features:
 - Pre-loaded MovieLens dataset
-- 🎛Real-time parameter tuning
+- Real-time parameter tuning
 - Visualization of slime mold network growth
 - Performance metrics dashboard
 
-## 🔬 Scientific Background
+## Scientific Background
 
 This algorithm is inspired by several key research areas:
 
@@ -220,7 +220,7 @@ python -m pytest tests/
 python examples/movielens_demo.py
 ```
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
