@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slime Mold Movie Recommender Demo</title>
+    <style>
+        .movie-selector { margin: 20px 0; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .movie-card { border: 2px solid #ddd; padding: 15px; border-radius: 10px; cursor: pointer; }
+        .movie-card.selected { border-color: #667eea; background: #f0f4ff; }
+        .recommendations { margin-top: 30px; }
+        .rec-item { background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 15px; margin: 10px 0; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🧠 Slime Mold Movie Recommender</h1>
+    <p>Select movies you like, and watch our bio-inspired algorithm find your perfect recommendations!</p>
+    
+    <div class="movie-selector">
+        <h3>Select 3-5 movies you enjoyed:</h3>
+        <div class="movie-grid" id="movieGrid">
+            <!-- Movies will be populated here -->
+        </div>
+    </div>
+    
+    <button onclick="getRecommendations()" style="background: #667eea; color: white; padding: 15px 30px; border: none; border-radius: 25px; font-size: 16px; cursor: pointer;">
+        🧬 Let the Slime Mold Explore!
+    </button>
+    
+    <div id="loading" style="display: none;">
+        <h3>🔬 Slime mold is exploring the movie universe...</h3>
+        <div style="width: 100px; height: 20px; background: #ddd; border-radius: 10px; overflow: hidden;">
+            <div style="width: 0%; height: 100%; background: linear-gradient(45deg, #667eea, #764ba2); transition: width 3s;"></div>
+        </div>
+    </div>
+    
+    <div class="recommendations" id="recommendations" style="display: none;">
+        <h3>🎬 Your Personalized Recommendations:</h3>
+        <div id="recList"></div>
+    </div>
+
+    <script>
+        // Sample movies data (you can expand this)
+        const sampleMovies = [
+            {id: 1, title: "Toy Story (1995)", genres: "Animation|Children|Comedy"},
+            {id: 2, title: "Jumanji (1995)", genres: "Adventure|Children|Fantasy"},
+            {id: 3, title: "Heat (1995)", genres: "Action|Crime|Thriller"},
+            {id: 4, title: "Seven (1995)", genres: "Mystery|Thriller"},
+            {id: 5, title: "Usual Suspects, The (1995)", genres: "Crime|Mystery|Thriller"},
+            // Add more movies...
+        ];
+        
+        let selectedMovies = [];
+        
+        // Initialize movie grid
+        function initMovieGrid() {
+            const grid = document.getElementById('movieGrid');
+            sampleMovies.forEach(movie => {
+                const card = document.createElement('div');
+                card.className = 'movie-card';
+                card.innerHTML = `
+                    <h4>${movie.title}</h4>
+                    <p><small>${movie.genres}</small></p>
+                `;
+                card.onclick = () => toggleMovie(movie.id, card);
+                grid.appendChild(card);
+            });
+        }
+        
+        function toggleMovie(movieId, cardElement) {
+            if (selectedMovies.includes(movieId)) {
+                selectedMovies = selectedMovies.filter(id => id !== movieId);
+                cardElement.classList.remove('selected');
+            } else if (selectedMovies.length < 5) {
+                selectedMovies.push(movieId);
+                cardElement.classList.add('selected');
+            }
+        }
+        
+        function getRecommendations() {
+            if (selectedMovies.length < 3) {
+                alert('Please select at least 3 movies!');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('recommendations').style.display = 'none';
+            
+            // Simulate API call (replace with actual backend call)
+            setTimeout(() => {
+                const mockRecs = [
+                    {title: "Pulp Fiction (1994)", score: 0.95, genres: "Crime|Drama"},
+                    {title: "Shawshank Redemption (1994)", score: 0.92, genres: "Crime|Drama"},
+                    {title: "Forrest Gump (1994)", score: 0.88, genres: "Comedy|Drama|Romance"},
+                    {title: "Lion King (1994)", score: 0.85, genres: "Animation|Children|Drama"},
+                    {title: "Speed (1994)", score: 0.82, genres: "Action|Romance|Thriller"}
+                ];
+                
+                showRecommendations(mockRecs);
+            }, 3000);
+        }
+        
+        function showRecommendations(recs) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('recommendations').style.display = 'block';
+            
+            const recList = document.getElementById('recList');
+            recList.innerHTML = '';
+            
+            recs.forEach((rec, index) => {
+                const recItem = document.createElement('div');
+                recItem.className = 'rec-item';
+                recItem.innerHTML = `
+                    <h4>${index + 1}. ${rec.title}</h4>
+                    <p>Slime Mold Confidence: ${(rec.score * 100).toFixed(1)}%</p>
+                    <p><small>${rec.genres}</small></p>
+                `;
+                recList.appendChild(recItem);
+            });
+        }
+        
+        // Initialize on load
+        initMovieGrid();
+    </script>
+</body>
+</html>
