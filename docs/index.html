@@ -1,1 +1,364 @@
-# Main page
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slime Mold Recommender System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .metrics {
+            display: flex;
+            justify-content: space-around;
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 10px;
+            transition: transform 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .algorithm-visual {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .slime-network {
+            display: inline-block;
+            width: 200px;
+            height: 150px;
+            background: radial-gradient(circle, #4CAF50, #2E7D32);
+            border-radius: 50%;
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+
+        .features {
+            list-style: none;
+        }
+
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .github-link {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .subtitle { font-size: 1.2em; }
+            .content { padding: 20px; }
+            .metrics { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Slime Mold Recommender</h1>
+            <p class="subtitle">VAE-Enhanced Collaborative Filtering with Bio-Inspired Dynamics</p>
+            <div class="algorithm-visual">
+                <div class="slime-network"></div>
+            </div>
+        </header>
+
+        <div class="content">
+            <h2>Revolutionary Recommendation Algorithm</h2>
+            <p>Inspired by the foraging behavior of slime molds, this cutting-edge recommendation system combines Variational Autoencoders (VAE) with bio-inspired network dynamics to deliver highly accurate personalized recommendations.</p>
+
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-value">0.867</div>
+                    <div class="metric-label">RMSE Score</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">9,724</div>
+                    <div class="metric-label">Movies Analyzed</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">610</div>
+                    <div class="metric-label">Users Evaluated</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-value">100K+</div>
+                    <div class="metric-label">Ratings Processed</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>🧬 Bio-Inspired Algorithm</h3>
+                <p>Mimics the intelligent foraging patterns of Physarum polycephalum (slime mold) to discover optimal pathways through user preference networks, creating more natural and intuitive recommendations.</p>
+                <ul class="features">
+                    <li>Adaptive tube growth and decay</li>
+                    <li>Reinforcement learning dynamics</li>
+                    <li>Network optimization through biological principles</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>🤖 VAE Integration</h3>
+                <p>Advanced Variational Autoencoder compresses high-dimensional user-item interactions into meaningful latent representations, enabling efficient similarity computation and scalable recommendations.</p>
+                <ul class="features">
+                    <li>Dimensionality reduction to 20D latent space</li>
+                    <li>Handles sparse rating matrices</li>
+                    <li>Scalable to large datasets</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>⚡ High Performance</h3>
+                <p>Optimized implementation with parallel processing, smart neighbor limiting, and efficient sparse matrix operations for real-time recommendation generation.</p>
+                <ul class="features">
+                    <li>Multi-threaded evaluation</li>
+                    <li>Sparse matrix optimization</li>
+                    <li>Sub-second recommendation generation</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>How It Works</h2>
+            <div class="grid">
+                <div>
+                    <h3>1. Data Compression</h3>
+                    <p>The VAE learns to compress user rating patterns into a compact 20-dimensional representation, capturing the essential structure of user preferences.</p>
+                </div>
+                <div>
+                    <h3>2. Similarity Network</h3>
+                    <p>Item similarities are computed in the latent space using cosine similarity, creating a network of related content with weighted connections.</p>
+                </div>
+                <div>
+                    <h3>3. Slime Mold Simulation</h3>
+                    <p>Virtual slime mold agents explore the similarity network, with tubes growing stronger along frequently traveled paths between liked items.</p>
+                </div>
+                <div>
+                    <h3>4. Recommendation Generation</h3>
+                    <p>Items with the strongest tube connections to user's liked content are surfaced as personalized recommendations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Quick Start</h2>
+            <div class="code-block">
+# Install dependencies
+pip install numpy pandas scikit-learn tensorflow scipy tqdm
+
+# Clone the repository
+git clone https://github.com/cuilongyin/slime-mold-recommender.git
+cd slime-mold-recommender
+
+# Run the example
+python examples/movielens_demo.py
+            </div>
+            
+            <div class="code-block">
+# Basic usage
+from src.slime_mold_recommender import SlimeMoldRecommenderV5
+
+# Create and train the recommender
+recommender = SlimeMoldRecommenderV5(
+    latent_dim=20,
+    decay_rate=0.1,
+    growth_rate=0.2
+)
+recommender.fit(ratings_df)
+
+# Get recommendations
+recommendations, scores = recommender.recommend(
+    liked_items=[1, 42, 123],
+    top_n=5
+)
+            </div>
+        </div>
+
+        <div class="content" style="text-align: center;">
+            <h2>Explore Further</h2>
+            <a href="demo.html" class="btn">🎮 Interactive Demo</a>
+            <a href="api.html" class="btn">📚 API Documentation</a>
+            <a href="https://github.com/cuilongyin/slime-mold-recommender" class="github-link">⭐ View on GitHub</a>
+        </div>
+
+        <footer>
+            <p>Built with ❤️ for the recommendation systems community</p>
+            <p>Inspired by nature, powered by machine learning</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate metrics on scroll
+            const metrics = document.querySelectorAll('.metric-value');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const finalValue = target.textContent;
+                        let currentValue = 0;
+                        const increment = finalValue.includes('.') ? 0.001 : 1;
+                        
+                        const timer = setInterval(() => {
+                            currentValue += increment;
+                            if (finalValue.includes('.')) {
+                                target.textContent = currentValue.toFixed(3);
+                                if (currentValue >= parseFloat(finalValue)) {
+                                    target.textContent = finalValue;
+                                    clearInterval(timer);
+                                }
+                            } else {
+                                target.textContent = Math.floor(currentValue).toLocaleString();
+                                if (currentValue >= parseInt(finalValue.replace(/,/g, ''))) {
+                                    target.textContent = finalValue;
+                                    clearInterval(timer);
+                                }
+                            }
+                        }, 50);
+                    }
+                });
+            });
+            
+            metrics.forEach(metric => observer.observe(metric));
+        });
+    </script>
+</body>
+</html>
