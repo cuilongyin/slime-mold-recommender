@@ -81,12 +81,15 @@
                 alert('Please select at least 3 movies!');
                 return;
             }
-            
+        
             // Show loading
             document.getElementById('loading').style.display = 'block';
             document.getElementById('recommendations').style.display = 'none';
-            
-            // Simulate API call (replace with actual backend call)
+        
+            // Run pixel slime effect
+            createSlimeParticles(70); // can adjust
+            drawSlime();
+        
             setTimeout(() => {
                 const mockRecs = [
                     {title: "Pulp Fiction (1994)", score: 0.95, genres: "Crime|Drama"},
@@ -95,10 +98,11 @@
                     {title: "Lion King (1994)", score: 0.85, genres: "Animation|Children|Drama"},
                     {title: "Speed (1994)", score: 0.82, genres: "Action|Romance|Thriller"}
                 ];
-                
+        
                 showRecommendations(mockRecs);
             }, 3000);
         }
+
         
         function showRecommendations(recs) {
             document.getElementById('loading').style.display = 'none';
@@ -121,6 +125,57 @@
         
         // Initialize on load
         initMovieGrid();
+
+        const canvas = document.getElementById('slimeCanvas');
+        const ctx = canvas.getContext('2d');
+        let slimeParticles = [];
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        
+        function createSlimeParticles(count = 50) {
+            slimeParticles = [];
+            for (let i = 0; i < count; i++) {
+                slimeParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    dx: (Math.random() - 0.5) * 2,
+                    dy: (Math.random() - 0.5) * 2,
+                    size: 2 + Math.random() * 2,
+                    alpha: 1
+                });
+            }
+        }
+        
+        function drawSlime() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            slimeParticles.forEach(p => {
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(102, 126, 234, ${p.alpha})`;  // glowing blue-purple
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = "#764ba2";
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                p.alpha *= 0.98;
+            });
+            slimeParticles = slimeParticles.filter(p => p.alpha > 0.05);
+            if (slimeParticles.length > 0) {
+                requestAnimationFrame(drawSlime);
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+        
+        
     </script>
+
+    <canvas id="slimeCanvas" style="position: fixed; top: 0; left: 0; z-index: 10; pointer-events: none;"></canvas>
+    
 </body>
 </html>
