@@ -84,14 +84,31 @@
                 return;
             }
         
-            // Show loading
-            document.getElementById('loading').style.display = 'block';
-            document.getElementById('recommendations').style.display = 'none';
+            const loadingDiv = document.getElementById('loading');
+            const recommendationsDiv = document.getElementById('recommendations');
+            const progressBar = loadingDiv.querySelector('div > div'); // Get the inner progress bar
         
-            // Run pixel slime effect
-            createSlimeParticles(70); // can adjust
+            // --- FIX & RESET ---
+            // 1. Reset the progress bar to 0% in case this is a second search
+            progressBar.style.transition = 'none'; // Turn off animation for the reset
+            progressBar.style.width = '0%';
+        
+            // Use a tiny timeout to ensure the browser registers the reset before starting the new animation
+            setTimeout(() => {
+                progressBar.style.transition = 'width 3s'; // Turn animation back on
+                progressBar.style.width = '100%'; // Start the fill animation
+            }, 20);
+            // --- END FIX ---
+        
+            // Show loading section
+            loadingDiv.style.display = 'block';
+            recommendationsDiv.style.display = 'none';
+        
+            // Run slime effect
+            createSlimeParticles(70);
             drawSlime();
         
+            // Simulate network request and show recommendations
             setTimeout(() => {
                 const mockRecs = [
                     {title: "Pulp Fiction (1994)", score: 0.95, genres: "Crime|Drama"},
@@ -102,7 +119,7 @@
                 ];
         
                 showRecommendations(mockRecs);
-            }, 3000);
+            }, 3000); // 3-second delay matches the progress bar animation
         }
 
         
