@@ -12,6 +12,8 @@
     </style>
 </head>
 <body>
+    <canvas id="slimeCanvas" style="position: fixed; top: 0; left: 0; z-index: 10; pointer-events: none;"></canvas>
+    
     <h1>🧠 Slime Mold Movie Recommender</h1>
     <p>Select movies you like, and watch our bio-inspired algorithm find your perfect recommendations!</p>
     
@@ -124,7 +126,7 @@
         }
         
         // Initialize on load
-        initMovieGrid();
+        //initMovieGrid();
 
         const canvas = document.getElementById('slimeCanvas');
         const ctx = canvas.getContext('2d');
@@ -135,7 +137,7 @@
             canvas.height = window.innerHeight;
         }
         window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        //resizeCanvas();
         
         function createSlimeParticles(count = 50) {
             slimeParticles = [];
@@ -171,11 +173,10 @@
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
             }
         }
-        
+        initMovieGrid();
+        resizeCanvas(); // Initial size
         
     </script>
-
-    <canvas id="slimeCanvas" style="position: fixed; top: 0; left: 0; z-index: 10; pointer-events: none;"></canvas>
     
 </body>
 </html>
