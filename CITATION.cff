@@ -6,5 +6,9 @@ authors:
     orcid: https://orcid.org/0000-0003-4314-8542
 title: "slime-mold-recommender"
 version: 0.1.0 
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.15612335
+    description: "Concept DOI"
 date-released: 2025-06-07 
 repository-code: "https://github.com/cuilongyin/slime-mold-recommender"
