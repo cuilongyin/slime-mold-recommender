@@ -230,6 +230,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Inspired by the fascinating research on slime mold intelligence
 - Built with the amazing Python scientific computing ecosystem
 
+## Citation
+
+If you use this code in your research, please cite it as follows:
+
+Longyin Cui. (2025). *slime-mold-recommender* (Version 0.1.0) [Computer software]. https://github.com/cuilongyin/slime-mold-recommender
+
+### BibTeX
+
+```bibtex
+@software{Cui_slime-mold-recommender_2025,
+  author = {Cui, Longyin},
+  title = {{slime-mold-recommender}},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{[https://github.com/cuilongyin/slime-mold-recommender](https://github.com/cuilongyin/slime-mold-recommender)}},
+}
+```
+
 ## Contact
 
 - **GitHub**: [@cuilongyin](https://github.com/cuilongyin)
