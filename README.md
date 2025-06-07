@@ -4,6 +4,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.8+-orange.svg)](https://tensorflow.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15612335.svg)](https://doi.org/10.5281/zenodo.15612335)
 
 A revolutionary recommendation system that combines **Variational Autoencoders (VAE)** with **bio-inspired slime mold dynamics** to deliver highly accurate personalized recommendations. Inspired by the intelligent foraging behavior of *Physarum polycephalum*, this algorithm discovers optimal pathways through user preference networks.
 
@@ -232,9 +233,23 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Citation
 
-If you use this code in your research, please cite it as follows:
+If you use this software in your research, please cite it using the following DOI:
 
-Longyin Cui. (2025). *slime-mold-recommender* (Version 0.1.0) [Computer software]. https://github.com/cuilongyin/slime-mold-recommender
+[![DOI](https://zenodo.org/badge/996348421.svg)](https://doi.org/10.5281/zenodo.15612335)
+
+### BibTeX
+
+```bibtex
+@software{cui_longyin_2025_15612335,
+  author       = {Cui, Longyin},
+  title        = {{slime-mold-recommender}},
+  month        = jun,
+  year         = 2025,
+  publisher    = {Zenodo},
+  version      = {v0.1.0},
+  doi          = {10.5281/zenodo.15612335},
+  url          = {[https://doi.org/10.5281/zenodo.15612335](https://doi.org/10.5281/zenodo.15612335)}
+}
 
 ### BibTeX
 
