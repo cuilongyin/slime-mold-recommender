@@ -4,7 +4,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.8+-orange.svg)](https://tensorflow.org/)
-[![DOI](https://zenodo.org/badge/996348421.svg)](https://zenodo.org/badge/DOI/10.5281/zenodo.15612335.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15612335.svg)](https://doi.org/10.5281/zenodo.15612335)
 
 A revolutionary recommendation system that combines **Variational Autoencoders (VAE)** with **bio-inspired slime mold dynamics** to deliver highly accurate personalized recommendations. Inspired by the intelligent foraging behavior of *Physarum polycephalum*, this algorithm discovers optimal pathways through user preference networks.
 
